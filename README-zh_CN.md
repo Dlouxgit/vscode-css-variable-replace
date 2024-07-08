@@ -18,21 +18,21 @@
 
 例如，如果您在 CSS 文件中定义了以下 CSS 变量：
 
-\\```css
+```css
 :root {
   --primary-color: #ff0000;
 }
-\\```
+```
 
 并且您的 Vue 文件具有以下样式：
 
-\\```vue
+```vue
 <style scoped>
 .button {
   color: #ff0000;
 }
 </style>
-\\```
+```
 
 您将在 `color: #ff0000;` 行上方看到一个 CodeLens，建议将其替换为 `var(--primary-color)`。
 
@@ -46,7 +46,7 @@
 
 默认值为 `["src"]`。
 
-\\```json
+```json
 {
   "myExtension.additionalDirectories": [
     "src",
@@ -54,7 +54,7 @@
     "custom-directory"
   ]
 }
-\\```
+```
 
 ## 开发
 
@@ -66,9 +66,9 @@
 
 运行测试：
 
-\\```sh
+```sh
 npm test
-\\```
+```
 
 ## 许可
 
