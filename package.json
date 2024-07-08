@@ -1,0 +1,87 @@
+{
+  "name": "css-variable-replace-dl",
+  "displayName": "css variable replace",
+  "description": "A css variable search plugin",
+  "version": "1.0.0",
+  "author": "Dlouxgit",
+  "publisher": "dloux",
+  "packageManager": "pnpm@7.29.2",
+  "engines": {
+    "vscode": "^1.59.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "css",
+    "variable",
+    "sass"
+  ],
+  "main": "./extension.js",
+  "icon": "assets/logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dlouxgit/vscode-css-variable-replace"
+  },
+  "private": true,
+  "activationEvents": [
+    "onStartup",
+    "workspaceContains:src/",
+    "onLanguage:css",
+    "onLanguage:scss",
+    "onLanguage:vue",
+    "onLanguage:javascript",
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "cssReplaceExtension.additionalDirectories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": ["src"],
+          "description": "Additional directories to search for CSS and SCSS files"
+        }
+      }
+    },
+    "codeLensProviders": [
+      {
+        "language": "javascript",
+        "providers": [
+          {
+            "provideCodeLenses": "onDocumentOpen",
+            "disableIncludeStatementCodeLens": true
+          }
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "extension.replaceText",
+        "title": "Replace Text"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "pnpm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "dependencies": {
+    "@types/vscode": "^1.59.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "eslint": "^8.39.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.0.4",
+    "@vscode/test-electron": "^2.3.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "semantic-release": "^21.0.3"
+  }
+}
